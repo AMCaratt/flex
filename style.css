@@ -1,0 +1,102 @@
+/* Estilos Generales */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    align-items: flex-start;
+    gap: 15px; /* Espacio entre las imágenes */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.gallery-container img {
+    flex: 1 1 280px; /* flex-grow, flex-shrink, flex-basis */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.03);
+    z-index: 10;
+}
+
+.gallery-container .flex-large {
+    flex-basis: 600px; /* Ocupa un ancho base mayor */
+    height: 400px;
+}
+
+/* Pantallas pequeñas (teléfonos móviles, hasta 600px) */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .gallery-container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .gallery-container img {
+        flex: 1 1 90%; /* En móviles, cada imagen ocupará casi todo el ancho disponible */
+        height: 180px;
+        border-radius: 5px;
+    }
+
+    /* Asegurarse de que las imágenes "grandes" de Flexbox no sean excesivamente grandes en móvil */
+    .gallery-container .flex-large {
+        flex-basis: 90%; /* Vuelve a ocupar casi todo el ancho */
+        height: 180px; /* Vuelve a la altura normal de móvil */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .gallery-container {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .gallery-container img {
+        flex: 1 1 200px; /* Las imágenes intentarán tener un ancho base de 200px */
+        height: 180px;
+    }
+
+    .gallery-container .flex-large {
+        flex-basis: 400px; /* Todavía más grande que las normales, pero no tanto como en desktop */
+        height: 300px;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
